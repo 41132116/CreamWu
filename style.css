@@ -1,0 +1,575 @@
+      * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 在 style.css 的最上方添加 Google Fonts 的 @import */
+        @import url('https://fonts.googleapis.com/css2?family=Playwrite+AU+VIC+Guides&display=swap'); 
+        /* 套用字體樣式到 <p> 標籤 */
+        .custom-font {
+            font-family: "Playwrite AU VIC Guides", serif;
+            font-size: 50px;
+            color: #ffffff;
+            text-align: center;
+            margin-top: 20px;
+            opacity: 0.8;
+        }
+
+
+        body {
+            line-height: 1.8; /* 增加行高，提升閱讀舒適度 */
+            background: linear-gradient(180deg, #1e1e1e, #2b2b2b); /* 深灰到灰黑的垂直漸變，營造深邃氛圍 */
+            color: #e0e0e0; /* 使用淺灰白文字，與背景形成柔和對比 */
+            overflow-x: hidden; /* 禁止橫向滾動，避免內容溢出視窗 */
+            margin: 0; /* 去除預設邊距 */
+            padding: 0; /* 去除預設內距 */
+            font-family: 'Arial', sans-serif; /* 選用現代化字體 */
+        }
+
+        html, body {
+            scroll-behavior: smooth; /* 滑動效果 */
+        }
+        
+
+        header {
+            background: linear-gradient(135deg, #2a2a2a, #3b3b3b); /* 灰黑色漸變，增加神秘感 */
+            color: #ffffff; /* 白色文字，保證對比度 */
+            font-size: 24px; /* 字體大小保持一致 */
+            text-align: center; /* 文字居中 */
+            padding: 20px 15px; /* 減少上下內邊距 */
+            border-radius: 10px; /* 中等圓角，柔和但不失穩重 */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* 深色陰影增強層次感 */
+            margin: 30px auto; /* 降低上下外邊距 */
+            max-width: 960px; /* 限制寬度以集中視覺焦點 */
+            transition: all 0.3s ease-in-out; /* 平滑的變化效果 */
+        }
+        
+        header h1 {
+            font-size: 3rem; /* 稍微減少字體大小，避免區塊過於顯眼 */
+            margin: 0; /* 去除額外的上下間距 */
+            color: #e0e0e0; /* 使用淺灰白色文字，增加柔和感 */
+            letter-spacing: 1px; /* 增加字間距讓文字更有空間感 */
+            font-weight: 600; /* 中等加粗 */
+            text-shadow: 2px 2px 5px rgba(240, 172, 84, 0.5); /* 陰影增添神秘感 */
+        }
+        
+        /* 平板模式 */
+        @media (max-width: 768px) {
+            header {
+                padding: 15px 10px; /* 減少內邊距 */
+                margin: 20px auto; /* 縮小外邊距 */
+            }
+            header h1 {
+                font-size: 2.5rem; /* 調整字體大小 */
+            }
+        }
+        
+        /* 手機模式 */
+        @media (max-width: 480px) {
+            header {
+                padding: 10px 10px; /* 進一步縮小內邊距 */
+                margin: 15px auto; /* 減少外邊距 */
+                border-radius: 8px; /* 更小的圓角 */
+            }
+            header h1 {
+                font-size: 2rem; /* 適合手機顯示的字體大小 */
+                letter-spacing: 0.5px; /* 減少字間距以適應小螢幕 */
+            }
+        }
+        
+        header nav {
+            position: fixed; /* 固定選單 */
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: #1d1414;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* 添加陰影 */
+            padding: 10px 20px; /* 增加內部間距 */
+            transition: background-color 0.3s ease, box-shadow 0.3s ease; /* 平滑過渡 */
+        }
+        
+        header nav ul {
+            list-style: none; /* 移除項目符號 */
+            display: flex; /* 使用 Flexbox */
+            justify-content: center; /* 選單居中對齊 */
+            margin: 0;
+            padding: 0;
+        }
+        
+        header nav a {
+            color: #fff;
+            margin: 0 15px;
+            text-decoration: none;
+            position: relative;
+            font-size: 18px; /* 控制文字大小 */
+            font-weight: bold; /* 加粗文字 */
+            letter-spacing: 1px; /* 增加字間距 */
+            transition: color 0.3s ease; /* 添加平滑過渡效果 */
+        }
+        
+        header nav a:hover {
+            color: #f4a261; /* 滑鼠懸停時更換顏色 */
+        }
+
+        header nav a::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -5px;
+            width: 0;
+            height: 2px;
+            background-color: #f4a261; /* 底線顏色 */
+            transition: width 0.3s ease;
+        }
+        
+        header nav a:hover::after {
+            width: 100%; /* 滑鼠懸停時底線延展 */
+        }
+
+        @media (max-width: 768px) {
+            header nav ul {
+                flex-direction: column; /* 垂直排列選單 */
+                align-items: center; /* 居中對齊 */
+            }
+        
+            header nav a {
+                margin: 10px 0; /* 調整垂直間距 */
+                font-size: 20px; /* 增加文字大小 */
+            }
+        }
+        
+        
+        
+        /* 針對首頁標題的顏色 */
+        .main-title {
+            font-size: 6rem; /* 更大的字體尺寸以吸引視線 */
+            color: #ffb969; /* 鮮亮的橙色，吸引目光 */
+            font-weight: 700; /* 超粗字體，增加張力 */
+            text-transform: uppercase; /* 全大寫，強化標題感 */
+            text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.7); /* 更強的陰影效果，增強立體感 */
+            letter-spacing: 1px; /* 增加字母間距，讓排版更大氣 */
+            margin-bottom: 10px; /* 與副標題保持合理距離 */
+        }
+
+         /* 針對首頁標題的顏色 */
+         .main-title2 {
+            font-size: 70px;
+            color: #aaa298; /* 標題 ART藝術 顏色 */
+            font-weight: 700; /* 超粗字體，增加張力 */
+            text-transform: uppercase; /* 全大寫，強化標題感 */
+            text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.7); /* 更強的陰影效果，增強立體感 */
+        }
+
+        /* 定義淡入動畫 */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px); /* 讓標題稍微從上移動進場 */
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0); /* 回到原位 */
+            }
+        }
+
+        /* 主標題動畫效果 */
+        .animate-title {
+            animation: fadeIn 1.5s ease-in-out; /* 動畫名稱、時間與緩動效果 */
+            opacity: 0; /* 初始設置透明 */
+            animation-fill-mode: forwards; /* 動畫結束後保留最終狀態 */
+            animation-duration: 3s;
+        }
+
+        #text{
+            font-size: 30;
+
+        }
+
+
+        #background-img {
+            background-color: #ffdf75;
+            color: #ffffff;
+            font-size: 35px;
+            text-align: left;
+            position: relative;
+            padding: 30px;
+            background-image: url('creamwu1.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 180vh;
+        }
+
+        #background1-color{
+            background: linear-gradient(90deg, #2b1919, #3d3d3d);
+            color: #cccccc;
+            font-size: 35px;
+            text-align: left;
+            position: relative;
+            padding: 30px;
+            background-size: cover;
+            background-position: center;
+            height: 250vh;
+        }
+
+        /* 畫廊定義淡入動畫 */
+        @keyframes fadeIn {
+            from {
+                opacity: 0; /* 起始透明 */
+                transform: translateX(-30px); /* 顯示動畫時從左邊進場 */
+            }
+            to {
+                opacity: 1; /* 透明度回復到 1 */
+                transform: translateX(0); /* 恢復至原始位置 */
+            }
+        }
+
+        /* 主標題動畫效果 */
+        .animate-gallery {
+            animation: fadeIn 2s ease-in-out; /* 調整動畫時間和緩動效果 */
+            opacity: 1; /* 透明度為 1，確保動畫結束後保持可見狀態 */
+            animation-fill-mode: forwards; /* 保留動畫結束時的狀態 */
+            text-align: center;
+        }
+
+        .animate-gallery + p {
+            animation: fadeIn 2s ease-in-out 0.5s; /* 延遲0.5秒後開始動畫，提升整體動態感 */
+            opacity: 0;
+            animation-fill-mode: forwards;
+            text-align: center;
+        }
+        
+        .custom-font {
+            font-family: 'YourCustomFont', sans-serif; /* 使用自定義字體 */
+            color: #ffb969; /* 自訂的標題顏色 */
+        }
+
+
+        .video-frame {
+            border: 10px solid #6b4a38; /* 框線顏色 */
+            max-width: 580px; /* 限制框的寬度 */
+            max-height: 335px;
+            margin: 20px left; /* 置中對齊 */
+            border-radius: 8px; /* 邊角圓潤 */
+        }
+
+        #container {
+            margin-left: 50px;
+        }
+
+        .middle{
+            height: 80vh; /* 定义占满视口的高度 */
+            background-color: #505050; /* 默认背景颜色 */
+            display: flex;
+            align-items: center;
+            margin: 25px;
+            justify-content: center;
+            text-align: center;
+        }
+        
+
+        /* 4x4 方格佈局 */
+        /* 設置網頁全屏的網格佈局 */
+        .grid-container {
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr); /* 四欄 */
+            grid-template-rows: auto; /* 行高根據內容自適應 */
+            margin: 0; /* 無外邊距 */
+            padding: 0; /* 無內邊距 */
+        }
+
+        .grid-item {
+            position: relative;
+            overflow: hidden;
+            aspect-ratio: unset; /* 移除強制正方形比例 */
+            border-radius: 5px; /* 圓角效果 */
+            transition: transform 0.3s ease, box-shadow 0.3s ease; /* 過渡效果 */
+            height: auto; /* 自適應高度 */
+        }
+
+        .grid-item img {
+            width: 100%;
+            object-fit: contain; /* 避免裁剪內容 */
+            object-position: center; /* 圖片居中 */
+            border-radius: 10px; /* 圓角設計，提升視覺質感 */
+        }
+
+
+        /* 方格懸停放大效果 */
+        .grid-item:hover {
+            transform: scale(1.05); /* 懸停時微放大 */
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* 提高陰影深度 */
+        }
+
+        /* 滑鼠懸停時顯示文字 */
+        .grid-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6); /* 半透明背景 */
+            color: #747474;
+            opacity: 0; /* 初始隱藏 */
+            display: flex;/* 使用 Flexbox 排版 */
+            flex-direction: column;/* 讓內容垂直排列 */
+            justify-content: flex-start; /* 垂直方向靠上 */
+            align-items: flex-start; /* 水平方向靠左 */
+            transition: opacity 0.3s ease; /* 平滑過渡 */
+            text-align: left;/* 文字靠左 */
+            padding: 10px;
+        }
+
+        .grid-item:hover .grid-overlay {
+            opacity: 1; /* 懸停時顯示 */
+        }
+
+        /* 方格內文字樣式 */
+        .grid-overlay h3 {
+            margin-bottom: 10px;
+            font-size: 30px;
+            font-weight: bold;
+        }
+
+        .grid-overlay p {
+            font-size: 14px;
+        }
+
+        /* 滑鼠懸停時顯示文字 */
+        .grid-overlay1 {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6); /* 半透明背景 */
+            color: #fff;
+            opacity: 100%; /* 初始隱藏 */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            transition: opacity 0.3s ease; /* 平滑過渡 */
+            text-align: center;
+            padding: 10px;
+        }
+
+        .grid-item:hover .grid-overlay1 {
+            opacity: 1; /* 懸停時顯示 */
+        }
+
+        /* 灰色方格內文字樣式 */
+        .grid-overlay1 h3 {
+            margin-bottom: 10px;
+            font-size: 30px;
+            font-weight: bold;
+        }
+        /* 方格內文字大小 */
+        .grid-overlay1 p {
+            font-size: 26px;
+        }
+
+        /* class，例如 gray-background */
+        .gray-background {
+            background-color: #474747; /* 灰色背景 */
+            background-image: none;    /* 移除圖片 */
+            color: black;              /* 可選：文字設置成黑色，方便閱讀 */
+        }
+
+        /* 格子內文字 */
+        .gray-background .text {
+            position: absolute;       /* 絕對定位 */
+            top: 50%;                 /* 垂直居中 */
+            left: 50%;                /* 水平居中 */
+            transform: translate(-50%, -50%); /* 中心對齊 */
+            color: black;             /* 文字顏色 */
+            z-index: 1;               /* 確保文字在上層 */
+        }
+
+        /* 懸停時格子放大效果 */
+        .gray-background:hover {
+            transform: scale(1.1);    /* 放大格子 */
+            transition: transform 0.3s ease-in-out; /* 平滑過渡 */
+        }
+
+        @media (max-width: 768px) {
+            .grid-container {
+                grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); /* 更窄的格子 */
+            }
+        
+            .grid-item img {
+                object-fit: contain; /* 小屏幕時顯示完整圖片 */
+            }
+        
+            .gray-background {
+                font-size: 14px; /* 調整文字大小 */
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .grid-container {
+                grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); /* 更小的格子 */
+                gap: 5px; /* 減少間距 */
+            }
+        }
+        
+
+        .dropdown {
+            display: none;
+            position: absolute;
+            background-color: #ddd5b4;
+            min-width: 160px;
+            z-index: 1;
+        }
+
+        nav ul li {
+            position: relative;
+            display: inline-block;
+        }
+
+        nav ul li:hover .dropdown {
+            display: block;
+        }
+
+        .dropdown a {
+            display: block;
+            padding: 10px;
+            color: #000000;
+            text-decoration: none;
+        }
+
+        .dropdown a:hover {
+            background-color: #555555;
+        }
+
+        section {
+            padding: 20px;
+        }
+
+        #portfolio {
+            padding: 20px; /* 確保作品集有足夠的內邊距 */
+        }
+
+        .gallery-wrapper {
+            position: relative;
+            overflow: hidden; /* 限制滾動區域 */
+            width: 100%; /* 設定容器寬度 */
+        }
+
+        .gallery {
+            display: flex;
+            justify-content: space-around;
+            scroll-snap-type: x mandatory; /* 確保滑動效果自然 */
+            flex-wrap: wrap;
+            flex-wrap: nowrap; /* 不允許換行 */
+            overflow-x: scroll; /* 僅允許橫向滾動 */
+            scroll-behavior: smooth; /* 滑動時的平滑效果 */
+            width: 100%;
+        }
+
+        .image-container {
+            flex: 0 0 auto; /* 防止縮放，並維持每張圖片寬度 */
+            width: 30%; /* 調整每個圖片的寬度 */
+            margin-right: 10px; /* 每個圖片的間距 */
+        }
+
+        .scroll-button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.5); /* 半透明背景 */
+            color: #fff;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            z-index: 10;
+            font-size: 20px;
+            border-radius: 50%;
+        }
+
+        .scroll-button.left {
+            left: 10px; /* 靠左 */
+        }
+
+        .scroll-button.right {
+            right: 10px; /* 靠右 */
+        }
+
+        .scroll-button:hover {
+            background: rgba(0, 0, 0, 0.8); /* 滑鼠懸停效果 */
+        }
+
+
+        .image-container {
+            position: relative; /* 使得 overlay 可以絕對定位 */
+            width: 30%; /* 調整圖片容器的寬度 */
+            margin: 10px; /* 圖片間距 */
+        }
+
+        .image-container img {
+            width: 100%; /* 使圖片的寬度填滿容器 */
+            height: auto; /* 高度自動調整，以保持比例 */
+            aspect-ratio: 16 / 9; /* 設定比例為 16:9 */
+            object-fit: cover; /* 確保圖片保持比例並填滿容器 */
+            object-position: top; /* 將圖片位置向上移動 */
+            border-radius: 5px; /* 圓角效果 */
+            transition: transform 0.3s ease; /* 加入過渡效果 */
+        }
+
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8); /* 半透明背景 */
+            opacity: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: opacity 0.3s ease; /* 加入過渡效果 */
+        }
+
+        .overlay img {
+            width: auto; /* 根據需要調整浮動圖片的大小 */
+            max-width: 90%; /* 限制浮動圖片的最大寬度 */
+            height: auto; /* 保持比例 */
+            border-radius: 5px; /* 圓角效果 */
+        }
+
+        .image-container:hover .overlay {
+            opacity: 1; /* 滑鼠懸停時顯示浮動圖片 */
+        }
+
+        .image-container:hover img {
+            transform: scale(0.95); /* 當懸停時輕微縮小原圖 */
+        }
+
+        .footer-section {
+            display: flex;
+            flex-wrap: wrap; /* 让内容在小屏幕时换行 */
+            gap: 20px;       /* 每个区块的间距 */
+            padding: 20px;
+            background-color: #3d3d3d; /* 背景色，可根据需求更改 */
+            color: #ffffff;
+        }
+        
+        .footer-section > div {
+            flex: 1 1 300px; /* 每个区块至少300px宽，可根据需要调整 */
+            margin-bottom: 20px;
+        }
+        
+        .footer-section h2 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: #c75a00;
+        }
+        
+        .footer-section p {
+            font-size: 1rem;
+            line-height: 1.6; /* 增加行间距，让文字更易读 */
+            margin-bottom: 10px;
+        }
+        
